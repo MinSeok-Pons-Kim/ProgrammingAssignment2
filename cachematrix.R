@@ -33,7 +33,7 @@ cacheSolve <- function(x, ...) {
     
     inverse_matrix <- matrix(, nrow <- nrow(x$get()), ncol <- 0)
     # or you can replace as matrix(nrow <- dim(x$get(x))[1], ncol <- 0)
-    for(n in nrow(x)){ # stuff data inverse
+    for(n in 1:nrow(x)){ # stuff data inverse
         inverse_matrix <- cbind(inverse_matrix, a[,n])
     }
     #set inverse_matrix
