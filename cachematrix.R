@@ -29,17 +29,13 @@ cacheSolve <- function(x, ...) {
     
     inverse_matrix <- x$get_inverse()
 
-    #if there is no inverse matrix in cache then make a new one and also save it in cache
+    # if there is no inverse matrix in cache then make a new one and also save it in cache
     if(!is.null(inverse_matrix)){
         message("getting inverse matrix")
         return(inverse_matrix)
     }
-    
-    inverse_matrix <- matrix(, nrow <- nrow(x$get()), ncol <- 0)
-    # or you can replace as matrix(nrow <- dim(x$get(x))[1], ncol <- 0)
-    for(n in 1:nrow(x$get())){ # stuff data inverse
-        inverse_matrix <- cbind(inverse_matrix, a[n,])
-    }
+    # bring original matrix and calculate the inverse matrix
+    inverse_matrix <- solve(x$get(), ...)
     #set inverse_matrix
     x$set_inverse(inverse_matrix)
     
